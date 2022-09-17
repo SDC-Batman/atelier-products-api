@@ -2,12 +2,12 @@
 CREATE TABLE products (
   id integer CONSTRAINT productId PRIMARY KEY,
   name varchar(50),
+  description text,
   category text,
   slogan text,
-  description text,
-  defaultPrice varchar(20),
-  createdAt timestamp default current_timestamp,
-  updatedAt timestamp default current_timestamp
+  default_price varchar(20),
+  created_at timestamp default current_timestamp,
+  updated_at timestamp default current_timestamp
 );
 
 
@@ -52,5 +52,5 @@ CREATE TABLE related (
 \copy features from '/Users/goksu/Desktop/sdc-data/features.csv' delimiter ',' csv header;
 \copy styles from '/Users/goksu/Desktop/sdc-data/styles.csv' delimiter ',' csv header;
 \copy skus from '/Users/goksu/Desktop/sdc-data/skus.csv' delimiter ',' csv header;
-\copy photos from '/Users/goksu/Desktop/sdc-data/photos.csv' delimiter ',' csv header;
+\copy photos from '/Users/goksu/Desktop/sdc-data/transformed_photos.csv' delimiter ',' csv header;
 \copy related from '/Users/goksu/Desktop/sdc-data/related.csv' delimiter ',' csv header where related_product_id != 0;

@@ -1,11 +1,13 @@
 const models = require('../models');
 
 module.exports = {
-  getProducts: function(req, res) {
-    res.send('here');
+  getProducts: async (req, res) => {
+    const {page, count} = req.query;
+    const {rows} = await models.products.getAll(page, count);
+    res.send(rows);
   },
 
-  getProduct: function() {
+  getProductDetail: function() {
 
   },
 };
