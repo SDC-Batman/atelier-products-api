@@ -6,8 +6,8 @@ module.exports = {
   getStyles: async function(req, res) {
     const {product_id} = req.params;
     const styleRes = await models.styles.getStyleByProductId(product_id);
-    const {results} = styleRes.rows[0];
-    res.send({product_id, results});
+    const results = styleRes.rows[0];
+    res.send(results);
   },
 };
 
