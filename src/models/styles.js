@@ -3,8 +3,18 @@ const db = require('../db');
 module.exports = {
   getStyleByProductId: function(pId) {
     return db.query(`
-      SELECT id, name, sale_price, original_price, default
-      FROM features
+      SELECT (
+        json_agg(
+          json_build_object(
+            'style_id', id,
+            'name', name,
+            'sale_price', sale_price,
+            'original_price', original_price,
+            'default?', default_style
+          )
+        )
+      ) AS results
+      FROM styles
       WHERE product_id = ${pId}
     `);
   },
@@ -23,5 +33,5 @@ module.exports = {
 
   getSkusByStyleId: function(sId) {
 
-  }
+  },
 };
