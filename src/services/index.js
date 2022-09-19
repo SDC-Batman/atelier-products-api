@@ -3,7 +3,7 @@ const models = require('../models');
 module.exports = {
   // function that builds the product/:id/styles response
   buildProductDetailResponse: async function(pId) {
-    const result = {"product_id": pId};
+    const result = {'product_id': pId};
     const styles = [];
 
     // get the styles for related product
