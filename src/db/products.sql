@@ -54,3 +54,5 @@ CREATE TABLE related (
 \copy skus from '/Users/goksu/Desktop/sdc-data/skus.csv' delimiter ',' csv header;
 \copy photos from '/Users/goksu/Desktop/sdc-data/transformed_photos.csv' delimiter ',' csv header;
 \copy related from '/Users/goksu/Desktop/sdc-data/related.csv' delimiter ',' csv header where related_product_id != 0;
+
+
