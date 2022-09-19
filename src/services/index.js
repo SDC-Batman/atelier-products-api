@@ -25,5 +25,15 @@ module.exports = {
     return result;
   },
 
+  buildProductByIdResponse: async function(id) {
+    const [resProduct, resFeature] = await Promise.all([
+      models.products.getOne(id),
+      models.products.getFeatures(id),
+    ]);
+    const dataProduct = resProduct.rows[0];
+    const dataFeatures = resFeature.rows;
+    return {...dataProduct, features: dataFeatures};
+  },
+
 };
 
