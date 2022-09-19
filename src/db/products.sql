@@ -18,6 +18,7 @@ CREATE TABLE features (
   value varchar(100)
 );
 
+-- need to change id to style_id to get the correct output from my query
 CREATE TABLE styles (
   id integer CONSTRAINT styleId PRIMARY KEY,
   product_id integer references products (id),

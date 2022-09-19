@@ -10,6 +10,8 @@ router.get('/products', controller.products.getProducts);
 router.get('/products/:product_id', controller.products.getProductDetail);
 
 // url path for getting styles for a given product id
-router.get('/products/:product_id/styles', controller.styles.getObject);
+router.get(
+    '/products/:product_id/styles', controller.styles.getProductWithStyles,
+);
 
 module.exports = router;
