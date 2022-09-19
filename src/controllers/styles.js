@@ -15,7 +15,7 @@ module.exports = {
   getProductWithStyles: async function(req, res) {
     const {product_id} = req.params;
     // calls the function to build the response object
-    const result = await services.buildProductDetailResponse(product_id);
+    const result = await services.buildProductStylesResponse(product_id);
     res.send(result);
   },
 };

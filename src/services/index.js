@@ -2,7 +2,7 @@ const models = require('../models');
 
 module.exports = {
   // function that builds the product/:id/styles response
-  buildProductDetailResponse: async function(pId) {
+  buildProductStylesResponse: async function(pId) {
     const result = {'product_id': pId};
     const styles = [];
 
@@ -33,6 +33,11 @@ module.exports = {
     const dataProduct = resProduct.rows[0];
     const dataFeatures = resFeature.rows;
     return {...dataProduct, features: dataFeatures};
+  },
+
+  buildRelatedProductsResponse: async function(id) {
+    const related = await models.related.getRelatedPRoducts(id);
+    return (related.rows[0].related);
   },
 
 };
