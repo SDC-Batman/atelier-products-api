@@ -37,7 +37,7 @@ module.exports = {
 
   buildRelatedProductsResponse: async function(id) {
     const related = await models.related.getRelatedPRoducts(id);
-    return (related.rows[0].related);
+    return (related.rows[0].result);
   },
 
 };
