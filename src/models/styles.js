@@ -48,11 +48,11 @@ module.exports = {
   getStylesByProductId: function(pId) {
     return db.query(`
       SELECT
-      id,
-      name,
-      sale_price,
-      original_price,
-      default_style as default
+        style_id,
+        name,
+        sale_price,
+        original_price,
+        default_style as default
       FROM styles
       WHERE product_id = ${pId}
     `);
@@ -66,7 +66,7 @@ module.exports = {
         SELECT row_to_json(sq)
         FROM(
           SELECT
-          inSku.quantity,
+            inSku.quantity,
             inSku.size
           FROM skus as inSku
           WHERE inSku.id = s.id

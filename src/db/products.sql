@@ -1,6 +1,7 @@
 
+
 CREATE TABLE products (
-  id integer CONSTRAINT productId PRIMARY KEY,
+  id integer PRIMARY KEY,
   name varchar(50),
   description text,
   slogan text,
@@ -9,7 +10,6 @@ CREATE TABLE products (
   created_at timestamp default current_timestamp,
   updated_at timestamp default current_timestamp
 );
-
 
 CREATE TABLE features (
   id integer,
@@ -20,7 +20,7 @@ CREATE TABLE features (
 
 -- need to change id to style_id to get the correct output from my query
 CREATE TABLE styles (
-  id integer CONSTRAINT styleId PRIMARY KEY,
+  style_id integer PRIMARY KEY,
   product_id integer references products (id),
   name varchar(50),
   sale_price varchar(20),
@@ -30,14 +30,14 @@ CREATE TABLE styles (
 
 CREATE TABLE skus (
   id integer,
-  styleId integer references styles (id),
+  styleId integer references styles (style_id),
   size varchar(12),
   quantity integer
 );
 
 CREATE TABLE photos (
   id integer,
-  styleId integer references styles (id),
+  styleId integer references styles (style_id),
   url text,
   thumbnail_url text
 );
@@ -48,6 +48,12 @@ CREATE TABLE related (
   related_product_id integer references products (id)
 );
 
+CREATE TABLE cart (
+  sku_id integer,
+  count integer,
+)
+
+
 
 \copy products (id, name, description, slogan, category, default_price) from '/Users/goksu/Desktop/sdc-data/product.csv' delimiter ',' csv header;
 \copy features from '/Users/goksu/Desktop/sdc-data/features.csv' delimiter ',' csv header;
@@ -55,5 +61,17 @@ CREATE TABLE related (
 \copy skus from '/Users/goksu/Desktop/sdc-data/skus.csv' delimiter ',' csv header;
 \copy photos from '/Users/goksu/Desktop/sdc-data/transformed_photos.csv' delimiter ',' csv header;
 \copy related from '/Users/goksu/Desktop/sdc-data/related.csv' delimiter ',' csv header where related_product_id != 0;
+
+--CREATE INDEX pid on products (id);
+CREATE INDEX featureId on features (product_id);
+CREATE INDEX stylesId on styles (product_id);
+CREATE INDEX photoId on  photos (styleId);
+CREATE INDEX skuId on skus (id);
+CREATE INDEX skuStyle on skus (styleId);
+CREATE INDEX relatedId on related (current_product_id, related_product_id);
+
+
+
+
 
 

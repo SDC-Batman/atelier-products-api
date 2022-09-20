@@ -13,8 +13,8 @@ module.exports = {
       const style = stylesInfo.rows[i];
       // make the queries to get the related photos and skus
       const [resphotos, ressku] = await Promise.all([
-        models.styles.getPhotosByStyleId(style.id),
-        models.styles.getSkusByStyleId(style.id),
+        models.styles.getPhotosByStyleId(style.style_id),
+        models.styles.getSkusByStyleId(style.style_id),
       ]);
       // add the skus and photos to object
       style.photos = resphotos.rows;
