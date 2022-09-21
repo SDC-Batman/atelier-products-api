@@ -1,4 +1,4 @@
-
+DROP DATABASE atelier IF EXISTS;
 
 CREATE TABLE products (
   id integer PRIMARY KEY,
