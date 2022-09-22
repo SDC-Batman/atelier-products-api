@@ -18,7 +18,7 @@ export const options = {
 
 export default () => {
 
-  let response = http.get("http://localhost:3000/products/5555/styles");
+  let response = http.get("http://localhost:3000/products/4445");
 
   sleep(1);
 }
