@@ -7,8 +7,8 @@ export const options = {
   insecureSkipTLSVerify: true,
   noConnectionReuse: false,
   stages: [
-    {duration: '2m', target: 100}, // simulate ramp-up of traffic from 1-100 in 5m
-    {duration: '4m', target: 100},
+    {duration: '1m', target: 100}, // simulate ramp-up of traffic from 1-100 in 5m
+    {duration: '5m', target: 1000},
     {duration: '2m', target: 0},
   ],
   thresholds: {
@@ -18,7 +18,7 @@ export const options = {
 
 export default () => {
 
-  let response = http.get("http://localhost:3000/products/5555/styles");
+  let response = http.get("http://localhost:3000/products/1234/styles");
 
   sleep(1);
 }
