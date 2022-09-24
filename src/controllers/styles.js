@@ -7,9 +7,10 @@ const services = require('../services');
 module.exports = {
   getStyles: async function(req, res) {
     const {product_id} = req.params;
+    const productId = {product_id: product_id};
     const styleRes = await models.styles.getNested(product_id);
-    const results = styleRes.rows;
-    res.send(results);
+    const results = styleRes.rows[0];
+    res.send(Object.assign(productId, results));
   },
 
   getProductWithStyles: async function(req, res) {

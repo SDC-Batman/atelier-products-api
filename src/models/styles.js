@@ -6,7 +6,7 @@ module.exports = {
       SELECT json_agg(results) as results
       FROM (
           SELECT
-            styles.id as style_id,
+            styles.style_id,
             styles.name,
             styles.sale_price,
             styles.original_price,
@@ -18,7 +18,7 @@ module.exports = {
                   photos.url,
                   photos.thumbnail_url
                 FROM photos
-                WHERE photos.styleID = styles.id
+                WHERE photos.styleid = styles.style_id
               ) AS nestedSection
             ) AS photos,
             (
@@ -36,7 +36,7 @@ module.exports = {
                 )
               )
               FROM skus as outSku
-              WHERE outSku.styleId = styles.id
+              WHERE outSku.id = styles.style_id
             ) AS skus
           FROM styles
           WHERE styles.product_id = ${pId}

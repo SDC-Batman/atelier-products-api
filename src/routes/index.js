@@ -11,7 +11,7 @@ router.get('/products/:product_id', controller.products.getProductDetail);
 
 // url path for getting styles for a given product id
 router.get(
-    '/products/:product_id/styles', controller.styles.getProductWithStyles,
+    '/products/:product_id/styles', controller.styles.getStyles,
 );
 
 router.get(
