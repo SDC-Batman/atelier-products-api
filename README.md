@@ -16,6 +16,7 @@ For testing, the most complex select query in this microservice, styles, is chos
 Two databases considered were Postgresql and Mongodb. I chose Postgresql because the data I have is structured and highly relational. The biggest reason why I went with postgresql was because this microservice is read-only and with Postgres indexing, I could optimize my queries to be around 0.1 ms. The main trade off I made choosing Psql vs Mongo is Postgresql is not horizontally scalable. Although, with choosing Postgresql, I did not have to transform my data so much and instead added foreing keys and indexing to the tables.
 
 *** insert image of psql ***
+![psql](screenshots/index-query-plan.png)
 
 ## Local Testing
 K6 was used as the testing tool. The goal was to have response time be under 50ms.
