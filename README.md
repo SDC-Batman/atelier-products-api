@@ -27,6 +27,6 @@ K6 was used as the testing tool. The goal was to have response time be under 50m
 Microservice was deployed to an Amazon EC2 instance that was located in the US West coast.
 Loaderio is the tool we used to load test our system. Before caching, and with only one host 1000 rps had a high latency at aroun ~3000ms.
 
-<img src="screenshots/styles-1000-b4-loadbalance.png" width="500" height="200">
+<img src="screenshots/styles-1000-b4-loadbalance.png">
 - ### With Load Balancing
 - ### With Load Balancing and Caching
