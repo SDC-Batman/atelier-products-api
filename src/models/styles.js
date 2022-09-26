@@ -1,6 +1,9 @@
 const db = require('../db');
 
 module.exports = {
+
+  // builds a json object in the database and returns that object back
+  // includes styles, sizes, quantity and photos from related tables
   getNested: function(pId) {
     return db.query(`
       SELECT json_agg(results) as results
@@ -44,7 +47,7 @@ module.exports = {
     `);
   },
 
-  // cannot get id as style_id, look this up
+
   getStylesByProductId: function(pId) {
     return db.query(`
       SELECT

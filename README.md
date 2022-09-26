@@ -13,7 +13,7 @@ Cloud Side: ![nginx](https://img.shields.io/badge/nginx-%23009639.svg?style=for-
 For testing, the most complex select query in this microservice, styles, is chosen. Tests are benchmarked at 1000 clients per second.
 
 ## DataBase Selection:
-Two databases considered were Postgresql and Mongodb. I chose Postgresql because the data I have is structured and highly relational. The biggest reason why I went with postgresql was because this microservice is read-only and with Postgres indexing, I could optimize my queries to be around 0.1 ms. The main trade off was that Postgresql is not horizontally scalable.
+Two databases considered were Postgresql and Mongodb. I chose Postgresql because the data I have is structured and highly relational. The biggest reason why I went with postgresql was because this microservice is read-only and with Postgres indexing, I could optimize my queries to be around 0.1 ms.
 
 <img src="screenshots/index-query-plan.png" width="500" height="200">
 

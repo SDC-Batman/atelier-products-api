@@ -3,17 +3,18 @@ const controller = require('../controllers');
 const router = new Router();
 
 
-// url path for getting all the products
+// sends back summarized information on all the products
 router.get('/products', controller.products.getProducts);
 
-// url path for getting details of a certain product
+// send back information about a single product
 router.get('/products/:product_id', controller.products.getProductDetail);
 
-// url path for getting styles for a given product id
+// send back styles, sizes, quantity and photos of a given product id
 router.get(
-    '/products/:product_id/styles', controller.styles.getStyles,
+    '/products/:product_id/styles', controller.styles.getProductWithStyles,
 );
 
+// send back ids of related products
 router.get(
     '/products/:product_id/related', controller.related.getRelatedProducts,
 );
