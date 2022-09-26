@@ -23,10 +23,12 @@ K6 was used as the testing tool. The goal was to have response time be under 50m
 <img src="screenshots/styles-local-load-test-k6.png" width="500" height="200">
 
 ## Cloud Testing
-- ### Bare
+- ### With 1 Host
 Microservice was deployed to an Amazon EC2 instance that was located in the US West coast.
-Loaderio is the tool we used to load test our system. Before caching, and with only one host 1000 rps had a high latency at aroun ~3000ms.
+Loaderio is the tool we used to load test our system. Before caching, and with only one host 1000 rps had a high latency at around ~3326ms and ~1.3% of the requests were timing out.
 
 <img src="screenshots/styles-1000-b4-loadbalance.png">
+
 - ### With Load Balancing
+Adding a second server and balancing the load using the server with least connections drastically changed the latency, bringing it down to ~460ms.
 - ### With Load Balancing and Caching
