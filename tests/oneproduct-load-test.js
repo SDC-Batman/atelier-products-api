@@ -1,7 +1,7 @@
 import http from 'k6/http';
 import {sleep} from 'k6';
 
-const API_BASE_URL = 'https://localhost:3000/products'
+const API_BASE_URL = 'https://localhost:3000/products/2'
 
 export const options = {
   insecureSkipTLSVerify: true,
