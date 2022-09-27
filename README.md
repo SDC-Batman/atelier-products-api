@@ -18,19 +18,18 @@ Two databases considered were Postgresql and Mongodb. I chose Postgresql because
 <img src="screenshots/index-query-plan.png" width="500" height="200">
 
 ## Local Testing
-K6 was used as the testing tool. The goal was to have response time be under 50ms.
+K6 was used as the testing tool. The goal was to have average response time to be under 50ms.
 
 <img src="screenshots/styles-local-load-test-k6.png" width="500" height="200">
 
 ## Cloud Testing
 - ### One Host
-Microservice was deployed to an Amazon EC2 instance that was located in the US West coast.
-Loaderio is the tool we used to load test our system. Before caching, and with only one host 1000 rps had a high latency at around ~3326ms and ~1.3% of the requests were timing out.
+Microservice was deployed to an Amazon EC2 instance that was located in the US West coast. Before caching, and with only one host 1000 rps had a high latency at around ~3326ms and ~1.3% of the requests were timing out.
 
 <img src="screenshots/styles-1000-b4-loadbalance.png">
 
 - ### After Load Balancing With Two Hosts
-Adding a second server and balancing the load using the server with least connections drastically changed the latency, bringing it down to ~460ms. Though the error rate was still high at 1000rps.
+Adding a second server and balancing the load using the server with least connection method drastically changed the latency, bringing it down to ~460ms. Though the error rate was still high.
 
 <img src="screenshots/styles-1000-loadbalance.png">
 
@@ -44,3 +43,12 @@ Finally added caching using Nginx. As a result, queries response latency went do
 
 
 <img src="screenshots/styles-after-caching.png">
+
+# Feature Improvements
+---
+Possible next steps to increase the throughput would be to add more servers. Another step would be to upgrade to more powerful machines.
+
+# Dependencies
+---
+Needs npm install.
+Check out package.jsonfor further details.
