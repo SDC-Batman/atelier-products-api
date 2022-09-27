@@ -30,6 +30,17 @@ Loaderio is the tool we used to load test our system. Before caching, and with o
 <img src="screenshots/styles-1000-b4-loadbalance.png">
 
 - ### After Load Balancing With Two Hosts
-Adding a second server and balancing the load using the server with least connections drastically changed the latency, bringing it down to ~460ms.
+Adding a second server and balancing the load using the server with least connections drastically changed the latency, bringing it down to ~460ms. Though the error rate was still high at 1000rps.
+
+<img src="screenshots/styles-1000-loadbalance.png">
+
+Changed the load balancer's configuration to keep 20 connections alive at a time, even though it brought down the error rate, it was still above the desired min, 1%.
+
+<img src="screenshots/styles-keepalive-1000.png">
 
 - ### After Adding Caching
+
+Finally added caching using Nginx. As a result, queries response latency went down to ~62ms and error rate to 0%.
+
+
+<img src="screenshots/styles-after-caching.png">
